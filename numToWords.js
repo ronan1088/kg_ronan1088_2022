@@ -41,6 +41,25 @@ function numToString(x){
     }
     return numWord;
 }
+import { createInterface } from 'readline';
+
+const rl = createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+var test_array = [];
+var nbr = 0;
+
+rl.on('line', (line) => {
+    test_array.push(line.split(' '));
+    nbr++;
+
+    // number of lines to read
+    if (nbr > 5)
+        rl.close();
+});
+
+console.log(test_array);
 
 var test_array = [12345,34,56,78,5];
 var switchArray = []
@@ -54,7 +73,7 @@ for (index = 0; index < test_array.length; index++) {
     for (let digit of numString){
         concatNums = concatNums.concat(numToString(digit));
     }
-    console.log(concatNums)
+    //console.log(concatNums)
     stringArray.push(concatNums)
 }
 console.log(stringArray)
